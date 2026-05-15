@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.teacher.GroupsController"
+      stylesheets="@../../css/styles.css" spacing="16">
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Мои группы" styleClass="label-title"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="🔄  Обновить" onAction="#onRefresh" styleClass="button-secondary"/>
+    </HBox>
+
+    <!-- Фильтры -->
+    <HBox styleClass="card" spacing="12" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="🔍  Поиск по названию..."
+                   styleClass="search-field" prefWidth="260" onKeyReleased="#onSearch"/>
+        <ComboBox fx:id="statusFilter" promptText="Статус" prefWidth="150"
+                  onAction="#onFilter"/>
+        <Button text="Сбросить" onAction="#onReset" styleClass="button-secondary"/>
+    </HBox>
+
+    <!-- Таблица групп -->
+    <TableView fx:id="table" VBox.vgrow="ALWAYS" onMouseClicked="#onDoubleClick">
+        <columns>
+            <TableColumn fx:id="colName"       text="Название"     prefWidth="200"/>
+            <TableColumn fx:id="colCourse"     text="Курс"         prefWidth="150"/>
+            <TableColumn fx:id="colStudents"   text="Студентов"    prefWidth="100"/>
+            <TableColumn fx:id="colMax"        text="Макс."        prefWidth="70"/>
+            <TableColumn fx:id="colStatus"     text="Статус"       prefWidth="110"/>
+            <TableColumn fx:id="colStartDate"  text="Начало"       prefWidth="110"/>
+            <TableColumn fx:id="colEndDate"    text="Конец"        prefWidth="110"/>
+        </columns>
+        <placeholder><Label text="Групп не найдено"/></placeholder>
+    </TableView>
+
+    <!-- Нижняя панель: быстрый переход к журналам -->
+    <HBox styleClass="card" spacing="8" alignment="CENTER_LEFT">
+        <Label fx:id="countLabel" text="Всего: 0" styleClass="label-subtitle"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Label text="Для выбранной группы:" styleClass="label-subtitle"/>
+        <Button text="👥  Студенты"     onAction="#onOpenStudents"   styleClass="button-secondary"/>
+        <Button text="✅  Посещаемость"  onAction="#onOpenAttendance" styleClass="button-primary"/>
+        <Button text="📝  Оценки"        onAction="#onOpenGrades"     styleClass="button-primary"/>
+        <Button text="📅  Расписание"    onAction="#onOpenSchedule"   styleClass="button-secondary"/>
+    </HBox>
+</VBox>

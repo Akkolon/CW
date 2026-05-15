@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.admin.CoursesController"
+      stylesheets="@../../css/styles.css" spacing="16">
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Справочник курсов" styleClass="label-title"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="+ Создать курс" onAction="#onCreate" styleClass="button-primary"/>
+    </HBox>
+
+    <HBox styleClass="card" spacing="12" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="🔍  Поиск по названию..."
+                   styleClass="search-field" prefWidth="260" onKeyReleased="#onSearch"/>
+        <ComboBox fx:id="levelFilter" promptText="Уровень" prefWidth="140"
+                  onAction="#onFilter"/>
+        <CheckBox fx:id="activeOnly" text="Только активные" selected="true"
+                  onAction="#onFilter"/>
+        <Button text="Сбросить" onAction="#onReset" styleClass="button-secondary"/>
+    </HBox>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS" onMouseClicked="#onDoubleClick">
+        <columns>
+            <TableColumn fx:id="colId"       text="ID"           prefWidth="55"/>
+            <TableColumn fx:id="colName"     text="Название"     prefWidth="200"/>
+            <TableColumn fx:id="colLevel"    text="Уровень"      prefWidth="90"/>
+            <TableColumn fx:id="colHours"    text="Часов"        prefWidth="75"/>
+            <TableColumn fx:id="colPrice"    text="Цена/мес."    prefWidth="110"/>
+            <TableColumn fx:id="colActive"   text="Активен"      prefWidth="90"/>
+        </columns>
+        <placeholder><Label text="Курсы не найдены"/></placeholder>
+    </TableView>
+
+    <HBox spacing="8" alignment="CENTER_LEFT">
+        <Label fx:id="countLabel" text="Всего: 0" styleClass="label-subtitle"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="✏️  Изменить"     onAction="#onEdit"    styleClass="button-secondary"/>
+        <Button text="🗑  Деактивировать" onAction="#onDeactivate" styleClass="button-danger"/>
+    </HBox>
+</VBox>

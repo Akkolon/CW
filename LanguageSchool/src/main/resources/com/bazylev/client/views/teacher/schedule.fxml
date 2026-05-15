@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.teacher.ScheduleController"
+      stylesheets="@../../css/styles.css" spacing="16">
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Моё расписание" styleClass="label-title"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="🔄  Обновить" onAction="#onRefresh" styleClass="button-secondary"/>
+    </HBox>
+
+    <HBox styleClass="card" spacing="12" alignment="CENTER_LEFT">
+        <Label text="Группа:"/>
+        <ComboBox fx:id="groupCombo" prefWidth="220" onAction="#onGroupSelected"/>
+        <Label text="День:"/>
+        <ComboBox fx:id="dayCombo" prefWidth="150" onAction="#onDaySelected"/>
+        <Button text="Все дни" onAction="#onShowAll" styleClass="button-secondary"/>
+    </HBox>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colGroup" text="Группа"     prefWidth="180"/>
+            <TableColumn fx:id="colDay"   text="День"       prefWidth="130"/>
+            <TableColumn fx:id="colStart" text="Начало"     prefWidth="90"/>
+            <TableColumn fx:id="colEnd"   text="Конец"      prefWidth="90"/>
+            <TableColumn fx:id="colRoom"  text="Аудитория"  prefWidth="110"/>
+        </columns>
+        <placeholder><Label text="Выберите группу для отображения расписания"/></placeholder>
+    </TableView>
+
+    <Label fx:id="countLabel" text="Слотов: 0" styleClass="label-subtitle"/>
+</VBox>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.admin.EnrollStudentController"
+      stylesheets="@../../css/styles.css"
+      spacing="16" style="-fx-padding: 24; -fx-min-width: 480;">
+
+    <Label fx:id="titleLabel" text="Зачислить студента" styleClass="label-section"/>
+
+    <!-- Поиск студента -->
+    <VBox styleClass="card" spacing="10">
+        <Label text="Поиск студента" styleClass="label-subtitle"/>
+        <HBox spacing="8">
+            <TextField fx:id="searchField" promptText="Введите имя студента..."
+                       HBox.hgrow="ALWAYS"/>
+            <Button text="Найти" onAction="#onSearch" styleClass="button-primary"/>
+        </HBox>
+        <TableView fx:id="studentsTable" prefHeight="200">
+            <columns>
+                <TableColumn fx:id="colId"     text="ID"  prefWidth="50"/>
+                <TableColumn fx:id="colName"   text="ФИО" prefWidth="260"/>
+                <TableColumn fx:id="colStatus" text="Статус" prefWidth="100"/>
+            </columns>
+            <placeholder><Label text="Введите имя для поиска"/></placeholder>
+        </TableView>
+    </VBox>
+
+    <!-- Информация о группе -->
+    <VBox styleClass="card" spacing="6">
+        <Label text="Группа" styleClass="label-subtitle"/>
+        <Label fx:id="groupInfoLabel" text="" style="-fx-font-weight: bold;"/>
+        <Label fx:id="slotsLabel"     text="" styleClass="label-subtitle"/>
+    </VBox>
+
+    <HBox spacing="8" alignment="CENTER_RIGHT">
+        <Button text="Отмена"   onAction="#onCancel"  styleClass="button-secondary"/>
+        <Button text="Зачислить" onAction="#onEnroll"  styleClass="button-primary"/>
+    </HBox>
+</VBox>

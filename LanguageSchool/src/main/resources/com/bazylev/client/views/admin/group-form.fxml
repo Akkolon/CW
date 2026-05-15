@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.admin.GroupFormController"
+      stylesheets="@../../css/styles.css"
+      spacing="16" style="-fx-padding: 24; -fx-min-width: 420;">
+
+    <Label fx:id="titleLabel" text="Создать группу" styleClass="label-section"/>
+
+    <VBox spacing="12" styleClass="card">
+        <GridPane hgap="12" vgap="12">
+            <columnConstraints>
+                <ColumnConstraints minWidth="120" halignment="RIGHT"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+            </columnConstraints>
+
+            <Label text="Название:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="nameField" promptText="Английский A1-01"
+                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Курс:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="courseCombo" maxWidth="Infinity"
+                      GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Преподаватель:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="teacherCombo" maxWidth="Infinity"
+                      GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Макс. студентов:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <Spinner fx:id="maxStudentsSpinner"
+                     GridPane.rowIndex="3" GridPane.columnIndex="1"
+                     min="1" max="50" initialValue="15" editable="true"
+                     prefWidth="100"/>
+
+            <Label text="Дата начала:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="startDatePicker"
+                        GridPane.rowIndex="4" GridPane.columnIndex="1"
+                        maxWidth="Infinity"/>
+
+            <Label text="Дата конца:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="endDatePicker"
+                        GridPane.rowIndex="5" GridPane.columnIndex="1"
+                        maxWidth="Infinity"/>
+
+            <Label text="Статус:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="statusCombo" maxWidth="Infinity"
+                      GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+        </GridPane>
+    </VBox>
+
+    <HBox spacing="8" alignment="CENTER_RIGHT">
+        <Button text="Отмена"   onAction="#onCancel"  styleClass="button-secondary"/>
+        <Button text="Сохранить" onAction="#onSave"   styleClass="button-primary"/>
+    </HBox>
+</VBox>

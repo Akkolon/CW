@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.admin.PaymentFormController"
+      stylesheets="@../../css/styles.css"
+      spacing="16" style="-fx-padding: 24; -fx-min-width: 420;">
+
+    <Label text="Зарегистрировать платёж" styleClass="label-section"/>
+
+    <VBox styleClass="card" spacing="12">
+        <GridPane hgap="12" vgap="12">
+            <columnConstraints>
+                <ColumnConstraints minWidth="130" halignment="RIGHT"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+            </columnConstraints>
+
+            <Label text="Группа:"        GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="groupCombo" maxWidth="Infinity"
+                      onAction="#onGroupSelected"
+                      GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Студент:"       GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="studentCombo" maxWidth="Infinity"
+                      GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Сумма (руб.):"  GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="amountField" promptText="0.00"
+                       GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Дата платежа:"  GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="datePicker" maxWidth="Infinity"
+                        GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Способ оплаты:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="methodCombo" maxWidth="Infinity"
+                      GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            <Label text="Номер чека:"    GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <TextField fx:id="receiptField" promptText="Необязательно"
+                       GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+        </GridPane>
+    </VBox>
+
+    <HBox spacing="8" alignment="CENTER_RIGHT">
+        <Button text="Отмена"           onAction="#onCancel" styleClass="button-secondary"/>
+        <Button text="Зарегистрировать" onAction="#onSave"   styleClass="button-primary"/>
+    </HBox>
+</VBox>

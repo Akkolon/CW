@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.teacher.AttendanceController"
+      stylesheets="@../../css/styles.css" spacing="16">
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Журнал посещаемости" styleClass="label-title"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="💾  Сохранить" onAction="#onSave" styleClass="button-primary"/>
+    </HBox>
+
+    <HBox styleClass="card" spacing="12" alignment="CENTER_LEFT">
+        <Label text="Группа:"/>
+        <ComboBox fx:id="groupCombo" prefWidth="220" onAction="#onGroupSelected"/>
+        <Label text="Дата занятия:"/>
+        <DatePicker fx:id="datePicker" onAction="#onDateSelected"/>
+        <Button text="✅  Все присутствуют" onAction="#onMarkAll"
+                styleClass="button-secondary"/>
+    </HBox>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId"      text="ID"                 prefWidth="60"/>
+            <TableColumn fx:id="colName"    text="Студент"            prefWidth="200"/>
+            <TableColumn fx:id="colStatus"  text="Статус"             prefWidth="160"/>
+            <TableColumn fx:id="colComment" text="Причина отсутствия" prefWidth="220"/>
+        </columns>
+        <placeholder><Label text="Выберите группу и дату занятия"/></placeholder>
+    </TableView>
+
+    <HBox spacing="8" alignment="CENTER_LEFT">
+        <Label fx:id="statusLabel" text="" styleClass="label-subtitle"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="✏️  Редактировать" onAction="#onEditSelected"
+                styleClass="button-secondary"/>
+        <Button text="🗑  Удалить запись" onAction="#onDeleteSelected"
+                styleClass="button-danger"/>
+    </HBox>
+</VBox>

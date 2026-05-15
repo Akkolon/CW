@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.admin.TeachersController"
+      stylesheets="@../../css/styles.css" spacing="16">
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Преподаватели" styleClass="label-title"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="+ Добавить преподавателя" onAction="#onCreate" styleClass="button-primary"/>
+    </HBox>
+
+    <HBox styleClass="card" spacing="12" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="🔍  Поиск по специализации..."
+                   styleClass="search-field" prefWidth="280" onKeyReleased="#onSearch"/>
+        <Button text="Сбросить" onAction="#onReset" styleClass="button-secondary"/>
+    </HBox>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS" onMouseClicked="#onDoubleClick">
+        <columns>
+            <TableColumn fx:id="colId"             text="ID"              prefWidth="60"/>
+            <TableColumn fx:id="colPerson"         text="ФИО"             prefWidth="240"/>
+            <TableColumn fx:id="colSpecialization" text="Специализация"   prefWidth="220"/>
+            <TableColumn fx:id="colHireDate"       text="Дата принятия"   prefWidth="130"/>
+        </columns>
+        <placeholder><Label text="Преподаватели не найдены"/></placeholder>
+    </TableView>
+
+    <HBox spacing="8" alignment="CENTER_LEFT">
+        <Label fx:id="countLabel" text="Всего: 0" styleClass="label-subtitle"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="✏️  Изменить"   onAction="#onEdit"     styleClass="button-secondary"/>
+        <Button text="📅  Расписание" onAction="#onSchedule" styleClass="button-secondary"/>
+        <Button text="🗑  Удалить"    onAction="#onDelete"   styleClass="button-danger"/>
+    </HBox>
+</VBox>

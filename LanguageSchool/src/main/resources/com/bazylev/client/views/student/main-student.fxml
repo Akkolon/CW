@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.bazylev.client.controllers.student.MainStudentController"
+            stylesheets="@../../css/styles.css"
+            prefWidth="900" prefHeight="640">
+
+    <left>
+        <VBox styleClass="sidebar" spacing="2">
+            <VBox style="-fx-padding: 20 0 12 0; -fx-border-color: transparent transparent rgba(255,255,255,0.1) transparent; -fx-border-width: 1;">
+                <Label text="Школа языков" styleClass="sidebar-title"/>
+                <Label fx:id="userInfoLabel" text="Учащийся" styleClass="sidebar-subtitle"/>
+            </VBox>
+
+            <Label text="  МОЁ ОБУЧЕНИЕ" style="-fx-text-fill: #5A7BA8; -fx-font-size: 10px; -fx-font-weight: bold; -fx-padding: 12 0 4 0;"/>
+            <Button fx:id="btnSchedule"   text="📅  Расписание"     onAction="#onNavClick" styleClass="nav-button" userData="schedule"    maxWidth="Infinity"/>
+            <Button fx:id="btnGrades"     text="📝  Мои оценки"     onAction="#onNavClick" styleClass="nav-button" userData="grades"      maxWidth="Infinity"/>
+            <Button fx:id="btnAttendance" text="✅  Посещаемость"   onAction="#onNavClick" styleClass="nav-button" userData="attendance"  maxWidth="Infinity"/>
+
+            <Label text="  ФИНАНСЫ" style="-fx-text-fill: #5A7BA8; -fx-font-size: 10px; -fx-font-weight: bold; -fx-padding: 12 0 4 0;"/>
+            <Button fx:id="btnPayments"   text="💳  Мои платежи"    onAction="#onNavClick" styleClass="nav-button" userData="payments"    maxWidth="Infinity"/>
+
+            <Pane VBox.vgrow="ALWAYS"/>
+            <Button text="🚪  Выйти" onAction="#onLogout"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: transparent; -fx-text-fill: #FC8181;
+                           -fx-font-size: 13px; -fx-alignment: CENTER_LEFT;
+                           -fx-padding: 10 16 10 20; -fx-cursor: hand;
+                           -fx-border-color: transparent transparent rgba(255,255,255,0.1) transparent;
+                           -fx-border-width: 1 0 0 0;"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea"
+                   style="-fx-background-color: #F0F4F8; -fx-padding: 24;"/>
+    </center>
+</BorderPane>

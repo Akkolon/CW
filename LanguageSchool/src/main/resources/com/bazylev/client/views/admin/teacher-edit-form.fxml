@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.admin.TeacherEditFormController"
+      stylesheets="@../../css/styles.css"
+      spacing="16" style="-fx-padding: 24; -fx-min-width: 460;">
+
+    <Label text="Редактировать преподавателя" styleClass="label-section"/>
+
+    <VBox styleClass="card" spacing="12">
+        <Label text="Личные данные" styleClass="label-subtitle"/>
+        <GridPane hgap="12" vgap="12">
+            <columnConstraints>
+                <ColumnConstraints minWidth="140" halignment="RIGHT"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+            </columnConstraints>
+
+            <Label text="Фамилия:"
+                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="lastNameField" promptText="Иванов"
+                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Имя:"
+                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="firstNameField" promptText="Иван"
+                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Отчество:"
+                   GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="middleNameField"
+                       promptText="Иванович (необязательно)"
+                       GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Email:"
+                   GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="emailField"
+                       promptText="ivanov@school.by (необязательно)"
+                       GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Специализация:"
+                   GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <TextField fx:id="specializationField"
+                       promptText="Английский язык"
+                       GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+        </GridPane>
+    </VBox>
+
+    <VBox styleClass="card" spacing="12">
+        <Label text="Смена пароля" styleClass="label-subtitle"/>
+        <GridPane hgap="12" vgap="12">
+            <columnConstraints>
+                <ColumnConstraints minWidth="140" halignment="RIGHT"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+            </columnConstraints>
+
+            <Label text="Новый пароль:"
+                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <PasswordField fx:id="passwordField"
+                           promptText="Оставьте пустым, чтобы не менять"
+                           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Повторите пароль:"
+                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <PasswordField fx:id="passwordRepeatField"
+                           promptText="Оставьте пустым, чтобы не менять"
+                           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        </GridPane>
+    </VBox>
+
+    <Label fx:id="errorLabel" text="" wrapText="true"
+           style="-fx-text-fill: #E53E3E; -fx-font-size: 12px;
+                  -fx-background-color: #FFF5F5; -fx-background-radius: 6;
+                  -fx-border-color: #FEB2B2; -fx-border-radius: 6;
+                  -fx-border-width: 1; -fx-padding: 8 12 8 12;"
+           visible="false" managed="false"/>
+
+    <HBox spacing="8" alignment="CENTER_RIGHT">
+        <Button text="Отмена"    onAction="#onCancel" styleClass="button-secondary"/>
+        <Button text="Сохранить" onAction="#onSave"   styleClass="button-primary"/>
+    </HBox>
+</VBox>

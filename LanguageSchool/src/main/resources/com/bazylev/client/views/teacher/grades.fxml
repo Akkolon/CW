@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.teacher.GradesController"
+      stylesheets="@../../css/styles.css" spacing="16">
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Журнал оценок" styleClass="label-title"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="➕  Выставить оценку" onAction="#onAddGrade"
+                styleClass="button-primary"/>
+    </HBox>
+
+    <!-- Первая строка фильтров: группа и студент -->
+    <HBox styleClass="card" spacing="12" alignment="CENTER_LEFT">
+        <Label text="Группа:"/>
+        <ComboBox fx:id="groupCombo"   prefWidth="210"
+                  onAction="#onGroupSelected"/>
+        <Label text="Студент:"/>
+        <ComboBox fx:id="studentCombo" prefWidth="220"
+                  onAction="#onStudentSelected"/>
+        <Label text="Тип:"/>
+        <ComboBox fx:id="typeCombo"    prefWidth="155"
+                  onAction="#onTypeSelected"/>
+    </HBox>
+
+    <!-- Вторая строка фильтров: период -->
+    <HBox styleClass="card" spacing="12" alignment="CENTER_LEFT">
+        <Label text="С:"/>
+        <DatePicker fx:id="fromDate"/>
+        <Label text="По:"/>
+        <DatePicker fx:id="toDate"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="Найти"    onAction="#onSearch"  styleClass="button-primary"/>
+        <Button text="Сбросить" onAction="#onReset"   styleClass="button-secondary"/>
+    </HBox>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colStudent" text="Студент"  prefWidth="200"/>
+            <TableColumn fx:id="colType"    text="Тип"      prefWidth="150"/>
+            <TableColumn fx:id="colValue"   text="Оценка"   prefWidth="90"/>
+            <TableColumn fx:id="colDate"    text="Дата"     prefWidth="110"/>
+        </columns>
+        <placeholder><Label text="Выберите группу для отображения оценок"/></placeholder>
+    </TableView>
+
+    <HBox styleClass="card" spacing="24" alignment="CENTER_LEFT">
+        <Label fx:id="countLabel"   text="Записей: 0"     styleClass="label-subtitle"/>
+        <Label fx:id="averageLabel" text="Средний балл: —"
+               style="-fx-font-weight: bold;"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="✏️  Редактировать" onAction="#onEditGrade"
+                styleClass="button-secondary"/>
+        <Button text="🗑  Удалить"       onAction="#onDeleteGrade"
+                styleClass="button-danger"/>
+    </HBox>
+</VBox>

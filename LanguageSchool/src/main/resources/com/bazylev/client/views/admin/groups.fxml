@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.admin.GroupsController"
+      spacing="16">
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Учебные группы" styleClass="label-title"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="+ Создать группу" onAction="#onCreateGroup" styleClass="button-primary"/>
+    </HBox>
+
+    <HBox styleClass="card" spacing="12" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="🔍  Поиск по названию..."
+                   styleClass="search-field" prefWidth="260"
+                   onKeyReleased="#onSearch"/>
+        <ComboBox fx:id="statusFilter" promptText="Статус" prefWidth="150"
+                  onAction="#onFilterChange"/>
+        <ComboBox fx:id="courseFilter" promptText="Курс" prefWidth="180"
+                  onAction="#onFilterChange"/>
+        <Button text="Сбросить" onAction="#onResetFilters" styleClass="button-secondary"/>
+    </HBox>
+
+    <TableView fx:id="groupsTable" VBox.vgrow="ALWAYS"
+               onMouseClicked="#onTableClicked">
+        <columns>
+            <TableColumn fx:id="colName"        text="Название"       prefWidth="180"/>
+            <TableColumn fx:id="colCourse"      text="Курс"           prefWidth="160"/>
+            <TableColumn fx:id="colTeacher"     text="Преподаватель"  prefWidth="160"/>
+            <TableColumn fx:id="colStudents"    text="Студентов"      prefWidth="100"/>
+            <TableColumn fx:id="colMaxStudents" text="Макс."          prefWidth="70"/>
+            <TableColumn fx:id="colStatus"      text="Статус"         prefWidth="110"/>
+            <TableColumn fx:id="colStartDate"   text="Начало"         prefWidth="100"/>
+            <TableColumn fx:id="colEndDate"     text="Конец"          prefWidth="100"/>
+        </columns>
+        <placeholder><Label text="Группы не найдены"/></placeholder>
+    </TableView>
+
+    <HBox spacing="8" alignment="CENTER_LEFT">
+        <Label fx:id="countLabel" text="Всего: 0" styleClass="label-subtitle"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="✏️  Изменить"    onAction="#onEditGroup"    styleClass="button-secondary"/>
+        <Button text="👥  Студенты"    onAction="#onViewStudents" styleClass="button-secondary"/>
+        <Button text="📋  Зачислить"   onAction="#onEnrollStudent" styleClass="button-secondary"/>
+        <Button text="🗓  Расписание"  onAction="#onViewSchedule" styleClass="button-secondary"/>
+    </HBox>
+</VBox>

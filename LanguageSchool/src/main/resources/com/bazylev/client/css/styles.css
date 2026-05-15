@@ -1,0 +1,264 @@
+/* ============================================================
+   Глобальные стили — Школа иностранных языков
+   ============================================================ */
+
+/* --- Корневой контейнер --- */
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #F0F4F8;
+}
+
+/* --- Кнопки --- */
+.button {
+    -fx-cursor: hand;
+    -fx-background-radius: 6;
+    -fx-padding: 8 16 8 16;
+}
+
+.button-primary {
+    -fx-background-color: #2C3E6B;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.button-primary:hover {
+    -fx-background-color: #3A5080;
+}
+
+.button-primary:pressed {
+    -fx-background-color: #1E2D50;
+}
+
+.button-danger {
+    -fx-background-color: #E53E3E;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.button-danger:hover {
+    -fx-background-color: #C53030;
+}
+
+.button-secondary {
+    -fx-background-color: #EDF2F7;
+    -fx-text-fill: #2D3748;
+    -fx-border-color: #CBD5E0;
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+}
+
+.button-secondary:hover {
+    -fx-background-color: #E2E8F0;
+}
+
+/* --- Поля ввода --- */
+.text-field, .password-field, .text-area, .combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #CBD5E0;
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+    -fx-background-radius: 6;
+    -fx-padding: 8 12 8 12;
+}
+
+.text-field:focused, .password-field:focused, .text-area:focused {
+    -fx-border-color: #2C3E6B;
+    -fx-border-width: 1.5;
+}
+
+/* --- Таблицы --- */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+}
+
+.table-view {
+    -fx-selection-bar: #E5E7EB;              /* светло-серый */
+    -fx-selection-bar-non-focused: #E5E7EB;  /* такой же без фокуса */
+}
+
+.table-view .table-cell:selected {
+    -fx-text-fill: #111827;
+}
+
+.table-view:focused .table-row-cell:selected .table-cell {
+    -fx-text-fill: #111827;
+}
+
+.table-view .column-header {
+    -fx-background-color: #F7FAFC;
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 10 12 10 12;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4A5568;
+}
+
+.table-view .table-row-cell {
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-table-cell-border-color: #EDF2F7;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #E5E7EB;
+    -fx-text-fill: #111827;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #FAFAFA;
+}
+
+.table-view .table-row-cell:even {
+    -fx-background-color: white;
+}
+
+/* --- Списки / деревья / выпадающие списки --- */
+.list-view {
+    -fx-selection-bar: #E5E7EB;
+    -fx-selection-bar-non-focused: #E5E7EB;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: #E5E7EB;
+    -fx-text-fill: #111827;
+}
+
+.tree-view {
+    -fx-selection-bar: #E5E7EB;
+    -fx-selection-bar-non-focused: #E5E7EB;
+}
+
+.tree-view .tree-cell:selected {
+    -fx-background-color: #E5E7EB;
+    -fx-text-fill: #111827;
+}
+
+/* Popup-список ComboBox */
+.combo-box-popup .list-view {
+    -fx-selection-bar: #E5E7EB;
+    -fx-selection-bar-non-focused: #E5E7EB;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #E5E7EB;
+    -fx-text-fill: #111827;
+}
+
+/* --- Метки заголовков --- */
+.label-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1A202C;
+}
+
+.label-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #718096;
+}
+
+.label-section {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2D3748;
+}
+
+/* --- Боковая панель навигации --- */
+.sidebar {
+    -fx-background-color: #2C3E6B;
+    -fx-min-width: 220px;
+    -fx-max-width: 220px;
+}
+
+.sidebar-title {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 20 16 4 16;
+}
+
+.sidebar-subtitle {
+    -fx-text-fill: #A8C0E8;
+    -fx-font-size: 11px;
+    -fx-padding: 0 16 16 16;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #A8C0E8;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 16 10 20;
+    -fx-background-radius: 0;
+    -fx-cursor: hand;
+    -fx-max-width: Infinity;
+}
+
+.nav-button:hover {
+    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-text-fill: white;
+}
+
+.nav-button-active {
+    -fx-background-color: rgba(255,255,255,0.15);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-color: transparent transparent transparent #63B3ED;
+    -fx-border-width: 0 0 0 3;
+}
+
+/* --- Карточки-панели --- */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 8, 0, 0, 2);
+    -fx-padding: 16;
+}
+
+/* --- Статусные метки --- */
+.status-active {
+    -fx-text-fill: #276749;
+    -fx-background-color: #C6F6D5;
+    -fx-background-radius: 12;
+    -fx-padding: 2 10 2 10;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.status-inactive {
+    -fx-text-fill: #744210;
+    -fx-background-color: #FEFCBF;
+    -fx-background-radius: 12;
+    -fx-padding: 2 10 2 10;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.status-error {
+    -fx-text-fill: #742A2A;
+    -fx-background-color: #FED7D7;
+    -fx-background-radius: 12;
+    -fx-padding: 2 10 2 10;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+/* --- Разделитель --- */
+.separator .line {
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 0.5;
+}
+
+/* --- Поле поиска --- */
+.search-field {
+    -fx-background-color: white;
+    -fx-border-color: #CBD5E0;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-border-width: 1;
+    -fx-padding: 7 16 7 16;
+    -fx-prompt-text-fill: #A0AEC0;
+}

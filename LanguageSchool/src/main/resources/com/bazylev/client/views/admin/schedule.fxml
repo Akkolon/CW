@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.admin.ScheduleController"
+      stylesheets="@../../css/styles.css"
+      spacing="14">
+
+    <Label text="Расписание" styleClass="label-title"/>
+
+    <!-- Панель статистики -->
+    <HBox spacing="12">
+        <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="4" alignment="CENTER"
+              style="-fx-border-color: #4299E1; -fx-border-width: 0 0 0 4;">
+            <Label text="Всего слотов" styleClass="label-subtitle"/>
+            <Label fx:id="statTotalLabel" text="—"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2B6CB0;"/>
+            <Label text="дней × время × аудитории" styleClass="label-subtitle"/>
+        </VBox>
+
+        <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="4" alignment="CENTER"
+              style="-fx-border-color: #FC8181; -fx-border-width: 0 0 0 4;">
+            <Label text="Занято" styleClass="label-subtitle"/>
+            <Label fx:id="statUsedLabel" text="—"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #C53030;"/>
+            <Label text="слотов" styleClass="label-subtitle"/>
+        </VBox>
+
+        <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="4" alignment="CENTER"
+              style="-fx-border-color: #48BB78; -fx-border-width: 0 0 0 4;">
+            <Label text="Свободно" styleClass="label-subtitle"/>
+            <Label fx:id="statFreeLabel" text="—"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #276749;"/>
+            <Label text="слотов" styleClass="label-subtitle"/>
+        </VBox>
+
+        <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="4" alignment="CENTER"
+              style="-fx-border-color: #ED8936; -fx-border-width: 0 0 0 4;">
+            <Label text="Активных групп" styleClass="label-subtitle"/>
+            <Label fx:id="statGroupsLabel" text="—"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #C05621;"/>
+            <HBox spacing="8" alignment="CENTER">
+                <Label fx:id="statWithLabel" text="—"
+                       style="-fx-text-fill: #276749; -fx-font-weight: bold;"/>
+                <Label text="с расписанием" styleClass="label-subtitle"/>
+                <Label fx:id="statWithoutLabel" text="—"
+                       style="-fx-text-fill: #C53030; -fx-font-weight: bold;"/>
+                <Label text="без" styleClass="label-subtitle"/>
+            </HBox>
+        </VBox>
+    </HBox>
+
+    <!-- Панель управления -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Группа:"/>
+        <ComboBox fx:id="groupCombo" prefWidth="280" onAction="#onGroupSelected"/>
+        <Button text="🔄" onAction="#onRefresh" styleClass="button-secondary"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Label fx:id="statusLabel" text="" styleClass="label-subtitle"/>
+        <Button text="⚙  Сгенерировать" onAction="#onGenerate" styleClass="button-primary"/>
+    </HBox>
+
+    <!-- Таблица -->
+    <TableView fx:id="table" VBox.vgrow="ALWAYS" onMouseClicked="#onDoubleClick">
+        <columns>
+            <TableColumn fx:id="colDay"   text="День"       prefWidth="170"/>
+            <TableColumn fx:id="colStart" text="Начало"     prefWidth="100"/>
+            <TableColumn fx:id="colEnd"   text="Конец"      prefWidth="100"/>
+            <TableColumn fx:id="colRoom"  text="Аудитория"  prefWidth="120"/>
+            <TableColumn fx:id="colGroup" text="Группа"     prefWidth="180"/>
+        </columns>
+        <placeholder><Label text="Выберите группу"/></placeholder>
+    </TableView>
+
+    <!-- Нижняя панель -->
+    <HBox spacing="8" alignment="CENTER_LEFT">
+        <Label fx:id="countLabel" text="Слотов: 0" styleClass="label-subtitle"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="✏️  Редактировать слот" onAction="#onEditSlot"
+                styleClass="button-secondary"/>
+        <Button text="🗑  Удалить слот" onAction="#onDeleteSlot"
+                styleClass="button-danger"/>
+    </HBox>
+</VBox>

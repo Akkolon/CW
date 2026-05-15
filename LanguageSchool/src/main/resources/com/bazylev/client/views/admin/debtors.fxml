@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.admin.DebtorsController"
+      stylesheets="@../../css/styles.css" spacing="16">
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Должники" styleClass="label-title"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="🔄  Обновить" onAction="#onRefresh" styleClass="button-secondary"/>
+    </HBox>
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colName"   text="ФИО студента"  prefWidth="240"/>
+            <TableColumn fx:id="colCourse" text="Курс"          prefWidth="200"/>
+            <TableColumn fx:id="colDebt"   text="Долг"          prefWidth="140"/>
+        </columns>
+        <placeholder><Label text="Должников нет ✅"/></placeholder>
+    </TableView>
+    <Label fx:id="countLabel" text="Всего должников: 0" styleClass="label-subtitle"/>
+</VBox>

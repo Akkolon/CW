@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.student.StudentGradesController"
+      stylesheets="@../../css/styles.css" spacing="16">
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Мои оценки" styleClass="label-title"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="🔄  Обновить" onAction="#onRefresh" styleClass="button-secondary"/>
+    </HBox>
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colType"  text="Тип"       prefWidth="160"/>
+            <TableColumn fx:id="colValue" text="Оценка"    prefWidth="90"/>
+            <TableColumn fx:id="colDate"  text="Дата"      prefWidth="110"/>
+        </columns>
+        <placeholder><Label text="Оценок не найдено"/></placeholder>
+    </TableView>
+    <HBox styleClass="card" spacing="24">
+        <Label fx:id="countLabel"   text="Всего: 0"        styleClass="label-subtitle"/>
+        <Label fx:id="averageLabel" text="Средний балл: —" style="-fx-font-weight: bold;"/>
+    </HBox>
+</VBox>

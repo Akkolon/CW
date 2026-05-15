@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.admin.PaymentsController"
+      stylesheets="@../../css/styles.css" spacing="16">
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Платежи" styleClass="label-title"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="+ Зарегистрировать платёж" onAction="#onCreate" styleClass="button-primary"/>
+    </HBox>
+    <HBox styleClass="card" spacing="12" alignment="CENTER_LEFT">
+        <Label text="Группа:"/>
+        <ComboBox fx:id="groupCombo" prefWidth="220" onAction="#onGroupSelected"/>
+        <Label text="Студент:"/>
+        <ComboBox fx:id="studentCombo" prefWidth="220"/>
+        <Button text="Найти"    onAction="#onSearch"   styleClass="button-primary"/>
+        <Button text="Сбросить" onAction="#onReset"    styleClass="button-secondary"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Label fx:id="debtLabel" text="" style="-fx-text-fill: #E53E3E; -fx-font-weight: bold;"/>
+    </HBox>
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId"      text="ID"         prefWidth="60"/>
+            <TableColumn fx:id="colStudent" text="Студент"    prefWidth="100"/>
+            <TableColumn fx:id="colAmount"  text="Сумма"      prefWidth="110"/>
+            <TableColumn fx:id="colDate"    text="Дата"       prefWidth="110"/>
+            <TableColumn fx:id="colMethod"  text="Способ"     prefWidth="120"/>
+            <TableColumn fx:id="colReceipt" text="Чек"        prefWidth="130"/>
+        </columns>
+        <placeholder><Label text="Выберите группу и студента"/></placeholder>
+    </TableView>
+    <HBox spacing="8" alignment="CENTER_LEFT">
+        <Label fx:id="countLabel" text="Всего: 0" styleClass="label-subtitle"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Label fx:id="totalLabel" text="Итого: 0.00" style="-fx-font-weight: bold;"/>
+    </HBox>
+</VBox>

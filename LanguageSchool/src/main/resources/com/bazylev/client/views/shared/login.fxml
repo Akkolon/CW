@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.bazylev.client.controllers.shared.LoginController"
+           stylesheets="@../../css/styles.css"
+           style="-fx-background-color: #F0F4F8;">
+
+    <VBox alignment="CENTER" spacing="0"
+          maxWidth="380" maxHeight="460"
+          style="-fx-background-color: white;
+                 -fx-background-radius: 12;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 20, 0, 0, 4);">
+
+        <!-- Заголовок -->
+        <VBox alignment="CENTER" spacing="6"
+              style="-fx-background-color: #2C3E6B;
+                     -fx-background-radius: 12 12 0 0;
+                     -fx-padding: 32 32 28 32;">
+            <Label text="Школа иностранных языков"
+                   style="-fx-text-fill: white;
+                          -fx-font-size: 16px;
+                          -fx-font-weight: bold;"/>
+            <Label text="Система управления"
+                   style="-fx-text-fill: #A8C0E8;
+                          -fx-font-size: 12px;"/>
+        </VBox>
+
+        <!-- Форма -->
+        <VBox spacing="16" style="-fx-padding: 32 32 28 32;">
+
+            <VBox spacing="6">
+                <Label text="Логин"
+                       style="-fx-font-size: 13px;
+                              -fx-text-fill: #4A5568;
+                              -fx-font-weight: bold;"/>
+                <TextField fx:id="loginField"
+                           promptText="Введите логин"
+                           style="-fx-font-size: 13px;
+                                  -fx-padding: 10 12 10 12;
+                                  -fx-background-radius: 6;
+                                  -fx-border-color: #CBD5E0;
+                                  -fx-border-radius: 6;
+                                  -fx-border-width: 1;
+                                  -fx-background-color: white;"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Пароль"
+                       style="-fx-font-size: 13px;
+                              -fx-text-fill: #4A5568;
+                              -fx-font-weight: bold;"/>
+                <PasswordField fx:id="passwordField"
+                               promptText="Введите пароль"
+                               style="-fx-font-size: 13px;
+                                      -fx-padding: 10 12 10 12;
+                                      -fx-background-radius: 6;
+                                      -fx-border-color: #CBD5E0;
+                                      -fx-border-radius: 6;
+                                      -fx-border-width: 1;
+                                      -fx-background-color: white;"/>
+            </VBox>
+
+            <Label fx:id="errorLabel"
+                   text=""
+                   wrapText="true"
+                   style="-fx-text-fill: #E53E3E;
+                          -fx-font-size: 12px;
+                          -fx-background-color: #FFF5F5;
+                          -fx-background-radius: 6;
+                          -fx-border-color: #FEB2B2;
+                          -fx-border-radius: 6;
+                          -fx-border-width: 1;
+                          -fx-padding: 8 12 8 12;"
+                   visible="false" managed="false"/>
+
+            <Button fx:id="loginButton"
+                    text="Войти"
+                    onAction="#onLoginButtonPressed"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: #2C3E6B;
+                           -fx-text-fill: white;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;
+                           -fx-padding: 11 0 11 0;
+                           -fx-background-radius: 6;
+                           -fx-cursor: hand;"/>
+
+            <HBox alignment="CENTER" spacing="8">
+                <Label text="Нет аккаунта?"
+                       style="-fx-text-fill: #718096; -fx-font-size: 12px;"/>
+                <Button text="Регистрация"
+                        onAction="#onRegisterButtonPressed"
+                        style="-fx-background-color: transparent;
+                               -fx-text-fill: #2C3E6B;
+                               -fx-font-size: 12px;
+                               -fx-font-weight: bold;
+                               -fx-padding: 2 6 2 6;
+                               -fx-cursor: hand;"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</StackPane>

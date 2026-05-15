@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.student.StudentAttendanceController"
+      stylesheets="@../../css/styles.css" spacing="16">
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Моя посещаемость" styleClass="label-title"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="🔄  Обновить" onAction="#onRefresh" styleClass="button-secondary"/>
+    </HBox>
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colDate"    text="Дата"     prefWidth="120"/>
+            <TableColumn fx:id="colStatus"  text="Статус"   prefWidth="130"/>
+            <TableColumn fx:id="colComment" text="Причина"  prefWidth="250"/>
+        </columns>
+        <placeholder><Label text="Записей о посещаемости не найдено"/></placeholder>
+    </TableView>
+    <Label fx:id="statsLabel" text="" styleClass="label-subtitle"/>
+</VBox>

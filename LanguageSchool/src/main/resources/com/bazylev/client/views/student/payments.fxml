@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.student.StudentPaymentsController"
+      stylesheets="@../../css/styles.css" spacing="16">
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Мои платежи" styleClass="label-title"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="🔄  Обновить" onAction="#onRefresh" styleClass="button-secondary"/>
+    </HBox>
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colAmount"  text="Сумма"    prefWidth="130"/>
+            <TableColumn fx:id="colDate"    text="Дата"     prefWidth="120"/>
+            <TableColumn fx:id="colMethod"  text="Способ"   prefWidth="130"/>
+            <TableColumn fx:id="colReceipt" text="Чек"      prefWidth="150"/>
+        </columns>
+        <placeholder><Label text="Платежей не найдено"/></placeholder>
+    </TableView>
+    <HBox styleClass="card" spacing="24">
+        <Label fx:id="totalLabel" text="Оплачено: 0.00 руб." styleClass="label-subtitle"/>
+        <Label fx:id="debtLabel"  text="Задолженность: —"
+               style="-fx-font-weight: bold; -fx-text-fill: #E53E3E;"/>
+    </HBox>
+</VBox>

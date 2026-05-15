@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.student.StudentScheduleController"
+      stylesheets="@../../css/styles.css" spacing="16">
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Моё расписание" styleClass="label-title"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="🔄  Обновить" onAction="#onRefresh" styleClass="button-secondary"/>
+    </HBox>
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colGroup"  text="Группа"    prefWidth="170"/>
+            <TableColumn fx:id="colCourse" text="Курс"      prefWidth="160"/>
+            <TableColumn fx:id="colDay"    text="День"      prefWidth="110"/>
+            <TableColumn fx:id="colStart"  text="Начало"    prefWidth="80"/>
+            <TableColumn fx:id="colEnd"    text="Конец"     prefWidth="80"/>
+            <TableColumn fx:id="colRoom"   text="Аудитория" prefWidth="100"/>
+        </columns>
+        <placeholder><Label text="Расписание не найдено"/></placeholder>
+    </TableView>
+</VBox>

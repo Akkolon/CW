@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bazylev.client.controllers.admin.DashboardController"
+      stylesheets="@../../css/styles.css" spacing="20">
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Главная" styleClass="label-title"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Label fx:id="dateLabel" text="" styleClass="label-subtitle"/>
+        <Button text="🔄  Обновить" onAction="#onRefresh" styleClass="button-secondary"/>
+    </HBox>
+
+    <!-- Карточки-счётчики -->
+    <HBox spacing="16">
+        <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="6" alignment="CENTER"
+              style="-fx-border-color: #4299E1; -fx-border-width: 0 0 0 4; -fx-border-radius: 8;">
+            <Label text="Активных групп" styleClass="label-subtitle"/>
+            <Label fx:id="groupsCountLabel" text="—"
+                   style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #2B6CB0;"/>
+            <Label text="учебных группы" styleClass="label-subtitle"/>
+        </VBox>
+
+        <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="6" alignment="CENTER"
+              style="-fx-border-color: #48BB78; -fx-border-width: 0 0 0 4; -fx-border-radius: 8;">
+            <Label text="Студентов" styleClass="label-subtitle"/>
+            <Label fx:id="studentsCountLabel" text="—"
+                   style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #276749;"/>
+            <Label text="активных учащихся" styleClass="label-subtitle"/>
+        </VBox>
+
+        <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="6" alignment="CENTER"
+              style="-fx-border-color: #ED8936; -fx-border-width: 0 0 0 4; -fx-border-radius: 8;">
+            <Label text="Преподавателей" styleClass="label-subtitle"/>
+            <Label fx:id="teachersCountLabel" text="—"
+                   style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #C05621;"/>
+            <Label text="в штате" styleClass="label-subtitle"/>
+        </VBox>
+
+        <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="6" alignment="CENTER"
+              style="-fx-border-color: #FC8181; -fx-border-width: 0 0 0 4; -fx-border-radius: 8;">
+            <Label text="Должников" styleClass="label-subtitle"/>
+            <Label fx:id="debtorsCountLabel" text="—"
+                   style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #C53030;"/>
+            <Label text="просроченных платежей" styleClass="label-subtitle"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+        <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="12">
+            <Label text="Активные группы" styleClass="label-section"/>
+            <TableView fx:id="groupsTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colGroupName"     text="Название"   prefWidth="170"/>
+                    <TableColumn fx:id="colGroupCourse"   text="Курс"       prefWidth="130"/>
+                    <TableColumn fx:id="colGroupStudents" text="Студентов"  prefWidth="90"/>
+                    <TableColumn fx:id="colGroupStatus"   text="Статус"     prefWidth="100"/>
+                </columns>
+                <placeholder><Label text="Нет данных"/></placeholder>
+            </TableView>
+        </VBox>
+
+        <VBox styleClass="card" prefWidth="300" maxWidth="300" spacing="12">
+            <Label text="⚠️  Должники" styleClass="label-section"/>
+            <ListView fx:id="debtorsList" VBox.vgrow="ALWAYS">
+                <placeholder><Label text="Должников нет ✅"/></placeholder>
+            </ListView>
+        </VBox>
+    </HBox>
+</VBox>
